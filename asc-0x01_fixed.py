@@ -433,8 +433,8 @@ for file in files:
     while True:  # codul executat se termina la ECALL
         instructiune_32 = instruction_fetch(registries[32])  # instructiune sub forma unui string de 32 de biti
         parametri = instruction_decode(instructiune_32)
-        instruction_execute(parametri)
-        registries[0] = 0   # x0 = 0
+        instruction_execute(parametri)      # memory access si write back sunt executate in instruction_execute unde este cazul 
+        registries[0] = 0   # x0 = 0          mem access are loc la instructiuni de tip load/store, iar write back la orice fel de operatie care modifica registrii
         if interrupt:
             break
 
