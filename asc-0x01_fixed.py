@@ -96,7 +96,7 @@ def instruction_execute(parametri):
             if funct7 == "0000000":
                 # todo
                 # sll = logical shift left
-                shift_left_by = registries[rs2][-5:]
+                shift_left_by = registries[rs2] & 0x0000001F
                 registries[rd] = registries[rs1] << shift_left_by
             elif funct7 == "0000001":
                 # mulh- THE UPPER 32 BITS OF SIGNED*SIGNED
